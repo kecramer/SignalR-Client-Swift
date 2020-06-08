@@ -1054,7 +1054,11 @@ private class InnerWebSocket: Hashable {
         }
         var keyb = [UInt32](repeating: 0, count: 4)
         for i in 0 ..< 4 {
+            #if os(Linux)
+            keyb[i] = Int.random(in: 0...UInt32.max)
+            #else
             keyb[i] = arc4random()
+            #endif
         }
         let rkey = Data(bytes: UnsafePointer(keyb), count: 16).base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         reqs += "Sec-WebSocket-Key: \(rkey)\r\n"
