@@ -13,6 +13,9 @@ import Foundation
 #if canImport(zlib)
 import zlib
 #endif
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 private let windowBufferSize = 0x2000
 
