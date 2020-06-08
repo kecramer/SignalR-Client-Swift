@@ -16,7 +16,7 @@ import zlib
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
-import Dispatch
+import CDispatch
 
 private let windowBufferSize = 0x2000
 
