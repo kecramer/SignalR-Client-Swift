@@ -1480,7 +1480,11 @@ private class InnerWebSocket: Hashable {
                 i -= 1
             }
         }
+        #if os(Linux)
+        let r = Int.random(in: 0...UInt32.max)
+        #else
         let r = arc4random()
+        #endif
         let maskBytes : [UInt8] = [UInt8(r >> 0 & 0xFF), UInt8(r >> 8 & 0xFF), UInt8(r >> 16 & 0xFF), UInt8(r >> 24 & 0xFF)]
         for i in 0 ..< 4 {
             head[hlen] = maskBytes[i]
