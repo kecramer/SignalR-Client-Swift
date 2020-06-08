@@ -17,6 +17,7 @@ import zlib
 import FoundationNetworking
 #endif
 import CDispatch
+import Glibc
 
 private let windowBufferSize = 0x2000
 
